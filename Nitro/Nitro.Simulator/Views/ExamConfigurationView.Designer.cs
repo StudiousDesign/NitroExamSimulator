@@ -28,7 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.radioButton3 = new System.Windows.Forms.RadioButton();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.rbtnTakeEntireExam = new System.Windows.Forms.RadioButton();
             this.btnStart = new DevExpress.XtraEditors.SimpleButton();
             this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
             this.txtCandidateName = new DevExpress.XtraEditors.TextEdit();
@@ -39,12 +43,10 @@
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.lcgExamSessionSettings = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.rbtnTakeEntireExam = new System.Windows.Forms.RadioButton();
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.dxErrorProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtCandidateName.Properties)).BeginInit();
@@ -58,6 +60,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dxErrorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
@@ -75,6 +78,36 @@
             this.layoutControl1.Size = new System.Drawing.Size(497, 522);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
+            // 
+            // radioButton3
+            // 
+            this.radioButton3.Location = new System.Drawing.Point(24, 166);
+            this.radioButton3.Name = "radioButton3";
+            this.radioButton3.Size = new System.Drawing.Size(449, 25);
+            this.radioButton3.TabIndex = 10;
+            this.radioButton3.TabStop = true;
+            this.radioButton3.Text = "radioButton3";
+            this.radioButton3.UseVisualStyleBackColor = true;
+            // 
+            // radioButton2
+            // 
+            this.radioButton2.Location = new System.Drawing.Point(24, 137);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(449, 25);
+            this.radioButton2.TabIndex = 9;
+            this.radioButton2.TabStop = true;
+            this.radioButton2.Text = "radioButton2";
+            this.radioButton2.UseVisualStyleBackColor = true;
+            // 
+            // rbtnTakeEntireExam
+            // 
+            this.rbtnTakeEntireExam.Location = new System.Drawing.Point(24, 108);
+            this.rbtnTakeEntireExam.Name = "rbtnTakeEntireExam";
+            this.rbtnTakeEntireExam.Size = new System.Drawing.Size(449, 25);
+            this.rbtnTakeEntireExam.TabIndex = 8;
+            this.rbtnTakeEntireExam.TabStop = true;
+            this.rbtnTakeEntireExam.Text = "Take all questions from the selected exam";
+            this.rbtnTakeEntireExam.UseVisualStyleBackColor = true;
             // 
             // btnStart
             // 
@@ -177,16 +210,6 @@
             this.lcgExamSessionSettings.Size = new System.Drawing.Size(477, 129);
             this.lcgExamSessionSettings.Text = "Session Settings";
             // 
-            // rbtnTakeEntireExam
-            // 
-            this.rbtnTakeEntireExam.Location = new System.Drawing.Point(24, 108);
-            this.rbtnTakeEntireExam.Name = "rbtnTakeEntireExam";
-            this.rbtnTakeEntireExam.Size = new System.Drawing.Size(449, 25);
-            this.rbtnTakeEntireExam.TabIndex = 8;
-            this.rbtnTakeEntireExam.TabStop = true;
-            this.rbtnTakeEntireExam.Text = "Take all questions from the selected exam";
-            this.rbtnTakeEntireExam.UseVisualStyleBackColor = true;
-            // 
             // layoutControlItem4
             // 
             this.layoutControlItem4.Control = this.rbtnTakeEntireExam;
@@ -195,16 +218,6 @@
             this.layoutControlItem4.Size = new System.Drawing.Size(453, 29);
             this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem4.TextVisible = false;
-            // 
-            // radioButton2
-            // 
-            this.radioButton2.Location = new System.Drawing.Point(24, 137);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(449, 25);
-            this.radioButton2.TabIndex = 9;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "radioButton2";
-            this.radioButton2.UseVisualStyleBackColor = true;
             // 
             // layoutControlItem3
             // 
@@ -215,16 +228,6 @@
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem3.TextVisible = false;
             // 
-            // radioButton3
-            // 
-            this.radioButton3.Location = new System.Drawing.Point(24, 166);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(449, 25);
-            this.radioButton3.TabIndex = 10;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "radioButton3";
-            this.radioButton3.UseVisualStyleBackColor = true;
-            // 
             // layoutControlItem5
             // 
             this.layoutControlItem5.Control = this.radioButton3;
@@ -233,6 +236,10 @@
             this.layoutControlItem5.Size = new System.Drawing.Size(453, 29);
             this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem5.TextVisible = false;
+            // 
+            // dxErrorProvider1
+            // 
+            this.dxErrorProvider1.ContainerControl = this.layoutControl1;
             // 
             // ExamConfigurationView
             // 
@@ -256,6 +263,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dxErrorProvider1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -279,5 +287,6 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem4;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem5;
+        private DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider dxErrorProvider1;
     }
 }

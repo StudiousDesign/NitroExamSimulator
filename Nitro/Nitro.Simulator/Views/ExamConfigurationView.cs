@@ -8,7 +8,6 @@ using System.Text;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
 using Nitro.Simulator.Entities;
 using Nitro.Simulator.ExtensionMethods;
@@ -17,8 +16,9 @@ using Nitro.Simulator.Infrastructure;
 namespace Nitro.Simulator.Views
 {
     [Export(typeof(ExamConfigurationView))]
-    public partial class ExamConfigurationView : XtraForm
+    public partial class ExamConfigurationView : BaseXtraFrom
     {
+        private bool _formValidating;
         private Exam _exam;
 
         public ExamSession ExamSession => new ExamSession(_exam, CandidateName, ExamMode);
@@ -55,6 +55,7 @@ namespace Nitro.Simulator.Views
 
         private void ResetView()
         {
+            _formValidating = false;
             txtCandidateName.Text = string.Empty;
             rbtnTakeEntireExam.Checked = true;
         }
@@ -67,18 +68,22 @@ namespace Nitro.Simulator.Views
 
         private void btnStart_Click(object sender, EventArgs e)
         {
-            CustomCloseReason = CustomCloseReason.ok;
-            this.Close();
+            _formValidating = true;
+
+            if (base.ValidateChildren())
+            {
+                CustomCloseReason = CustomCloseReason.ok;
+                this.Close();
+            }
         }
 
         #region validation
-        private bool FormIsValid()
-        {
-            return true;
-        }
 
         private void txtCandidateName_Validating(object sender, CancelEventArgs e)
         {
+            if (!_formValidating)
+                return;
+
             if (string.IsNullOrEmpty(txtCandidateName.Text))
                 e.Cancel = true;
         }
