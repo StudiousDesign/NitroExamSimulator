@@ -42,6 +42,8 @@
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             this.xtraLoadFileDialog = new DevExpress.XtraEditors.XtraOpenFileDialog(this.components);
+            this.btnStartSelected = new DevExpress.XtraEditors.SimpleButton();
+            this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlExamList)).BeginInit();
@@ -50,10 +52,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
             // 
+            this.layoutControl1.Controls.Add(this.btnStartSelected);
             this.layoutControl1.Controls.Add(this.btnRemoveSelected);
             this.layoutControl1.Controls.Add(this.btnLoad);
             this.layoutControl1.Controls.Add(this.gridControlExamList);
@@ -141,7 +145,8 @@
             this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem1,
             this.layoutControlItem2,
-            this.layoutControlItem3});
+            this.layoutControlItem3,
+            this.layoutControlItem4});
             this.layoutControlGroup1.Name = "layoutControlGroup1";
             this.layoutControlGroup1.Size = new System.Drawing.Size(884, 311);
             this.layoutControlGroup1.TextVisible = false;
@@ -169,7 +174,7 @@
             this.layoutControlItem3.Control = this.btnRemoveSelected;
             this.layoutControlItem3.Location = new System.Drawing.Point(760, 26);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(104, 265);
+            this.layoutControlItem3.Size = new System.Drawing.Size(104, 26);
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem3.TextVisible = false;
             // 
@@ -179,6 +184,25 @@
             this.xtraLoadFileDialog.InitialDirectory = "C:\\Users\\Rob\\source\\repos\\NitroExamSimulator\\SampleExamFiles";
             this.xtraLoadFileDialog.Multiselect = true;
             this.xtraLoadFileDialog.Title = "please select one or more nitro exam files";
+            // 
+            // btnStartSelected
+            // 
+            this.btnStartSelected.Location = new System.Drawing.Point(772, 64);
+            this.btnStartSelected.Name = "btnStartSelected";
+            this.btnStartSelected.Size = new System.Drawing.Size(100, 22);
+            this.btnStartSelected.StyleController = this.layoutControl1;
+            this.btnStartSelected.TabIndex = 7;
+            this.btnStartSelected.Text = "Start";
+            this.btnStartSelected.Click += new System.EventHandler(this.btnStartSelected_Click);
+            // 
+            // layoutControlItem4
+            // 
+            this.layoutControlItem4.Control = this.btnStartSelected;
+            this.layoutControlItem4.Location = new System.Drawing.Point(760, 52);
+            this.layoutControlItem4.Name = "layoutControlItem4";
+            this.layoutControlItem4.Size = new System.Drawing.Size(104, 239);
+            this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem4.TextVisible = false;
             // 
             // ExamSelectorView
             // 
@@ -190,6 +214,7 @@
             this.Name = "ExamSelectorView";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Nitro Exam Simulator";
+            this.Load += new System.EventHandler(this.ExamSelectorView_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControlExamList)).EndInit();
@@ -198,6 +223,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -217,5 +243,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn colAuthor;
         private DevExpress.XtraEditors.SimpleButton btnRemoveSelected;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
+        private DevExpress.XtraEditors.SimpleButton btnStartSelected;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem4;
     }
 }

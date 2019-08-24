@@ -64,10 +64,23 @@
   <ItemGroup>
     <Compile Include="Entities\Exam.cs" />
     <Compile Include="Entities\ExamFileCatalogueInfo.cs" />
+    <Compile Include="Entities\ExamSession.cs" />
     <Compile Include="ExtensionMethods\ExtensionMethods.cs" />
+    <Compile Include="Infrastructure\ExamManager.cs" />
+    <Compile Include="Infrastructure\ExamOutcome.cs" />
+    <Compile Include="Infrastructure\IExamManager.cs" />
+    <Compile Include="Infrastructure\IUiManager.cs" />
+    <Compile Include="Infrastructure\UiManager.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Entities\ExamFileInfo.cs" />
+    <Compile Include="Views\CustomCloseReason.cs" />
+    <Compile Include="Views\ExamConfigurationView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\ExamConfigurationView.Designer.cs">
+      <DependentUpon>ExamConfigurationView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\ExamSelectorView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -86,6 +99,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Views\ExamConfigurationView.resx">
+      <DependentUpon>ExamConfigurationView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\ExamSelectorView.resx">
       <DependentUpon>ExamSelectorView.cs</DependentUpon>
     </EmbeddedResource>

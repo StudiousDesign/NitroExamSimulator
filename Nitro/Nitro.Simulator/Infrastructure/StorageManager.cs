@@ -99,5 +99,13 @@ namespace Nitro.Simulator.Infrastructure
                     writer.Write(JsonConvert.SerializeObject(examCatalogue));
             }
         }
+
+        public Exam LoadExam(ExamFileInfo examInfo)
+        {
+            if (File.Exists(examInfo.Path))
+                return JsonConvert.DeserializeObject<Exam>(File.ReadAllText(examInfo.Path));
+
+            return null;
+        }
     }
 }

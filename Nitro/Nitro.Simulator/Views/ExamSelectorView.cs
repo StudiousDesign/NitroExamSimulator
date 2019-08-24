@@ -4,8 +4,10 @@ using System.ComponentModel;
 using System.ComponentModel.Composition;
 using System.Drawing;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
+using DevExpress.XtraGrid.Views.Base;
 using DevExpress.XtraGrid.Views.Grid;
 using Nitro.Simulator.Entities;
 using Nitro.Simulator.ExtensionMethods;
@@ -17,21 +19,34 @@ namespace Nitro.Simulator.Views
     public partial class ExamSelectorView : XtraForm
     {
         private readonly IStorageManager _storageManager;
+        private readonly IExamManager _examManager;
         private BindingList<ExamFileInfo> _examFiles;
 
-        [ImportingConstructor]
-        public ExamSelectorView(IStorageManager storageManager)
+        public ExamFileInfo SelectedExamFile
         {
-            Load += ExamSelectorView_Load;
-            _storageManager = storageManager;
-            InitializeComponent();
+            get
+            {
+                BindingList<ExamFileInfo> dataSource = (BindingList<ExamFileInfo>)gridViewExamList.DataSource;
+
+                if (dataSource == null)
+                    return null;
+
+                int[] selectedRows = gridViewExamList.GetSelectedRows();
+                if (!selectedRows.Any())
+                    return null;
+
+                int selectedRowHandle = selectedRows[0];
+                return dataSource[gridViewExamList.GetDataSourceRowIndex(selectedRowHandle)];
+            }
         }
 
-        private void ExamSelectorView_Load(object sender, EventArgs e)
+        [ImportingConstructor]
+        public ExamSelectorView(IStorageManager storageManager, IExamManager examManager)
         {
-            _examFiles = new BindingList<ExamFileInfo>(_storageManager.GetExamFileInfoList());
-            gridControlExamList.DataSource = _examFiles;
-            gridViewExamList.BestFitColumns(true);
+            _storageManager = storageManager;
+            _examManager = examManager;
+            _examManager.OnExamCompleted += OnExamCompleted;
+            InitializeComponent();
         }
 
         private void btnLoad_Click(object sender, EventArgs e)
@@ -44,7 +59,7 @@ namespace Nitro.Simulator.Views
             ExamSelectorView_Load(sender, e);
         }
 
-        private void gridViewExamList_CustomDrawEmptyForeground(object sender, DevExpress.XtraGrid.Views.Base.CustomDrawEventArgs e)
+        private void gridViewExamList_CustomDrawEmptyForeground(object sender, CustomDrawEventArgs e)
         {
             var view = (GridView)sender;
 
@@ -58,15 +73,29 @@ namespace Nitro.Simulator.Views
 
         private void btnRemoveSelected_Click(object sender, EventArgs e)
         {
-            BindingList<ExamFileInfo> dataSource = (BindingList<ExamFileInfo>)gridViewExamList.DataSource;
-            int[] selectedRows = gridViewExamList.GetSelectedRows();
-            if (!selectedRows.Any())
-                return;
-            int selectedRowHandle = selectedRows[0];
-            ExamFileInfo info = dataSource[gridViewExamList.GetDataSourceRowIndex(selectedRowHandle)];
+            if (SelectedExamFile != null && MessageBox.Show("Are you sure?", "Remove exam file", MessageBoxButtons.OKCancel) == DialogResult.OK)
+            {
+                _storageManager.RemoveExamInfo(SelectedExamFile);
+                ExamSelectorView_Load(sender, e);
+            }
+        }
 
-            _storageManager.RemoveExamInfo(info);
-            ExamSelectorView_Load(sender, e);
+        private void ExamSelectorView_Load(object sender, EventArgs e)
+        {
+            _examFiles = new BindingList<ExamFileInfo>(_storageManager.GetExamFileInfoList());
+            gridControlExamList.DataSource = _examFiles;
+            gridViewExamList.BestFitColumns(true);
+        }
+
+        private void btnStartSelected_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            _examManager.BeginExam(SelectedExamFile);
+        }
+
+        private void OnExamCompleted(object sender, ExamOutcome e)
+        {
+            this.Show();
         }
     }
 }

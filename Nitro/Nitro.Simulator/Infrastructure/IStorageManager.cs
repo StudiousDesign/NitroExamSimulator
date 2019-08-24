@@ -8,5 +8,6 @@ namespace Nitro.Simulator.Infrastructure
         IList<ExamFileInfo> GetExamFileInfoList();
         void SaveExamFileInfos(List<ExamFileInfo> examFileInfos);
         void RemoveExamInfo(ExamFileInfo info);
+        Exam LoadExam(ExamFileInfo examInfo);
     }
 }
