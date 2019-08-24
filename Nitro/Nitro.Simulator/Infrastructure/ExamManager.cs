@@ -11,7 +11,7 @@ namespace Nitro.Simulator.Infrastructure
     {
         private readonly IUiManager _uiManager;
         public event EventHandler<ExamOutcome> OnExamCompleted;
-        
+
         [ImportingConstructor]
         public ExamManager(IUiManager uiManager)
         {
@@ -30,7 +30,7 @@ namespace Nitro.Simulator.Infrastructure
 
         private void BeginExamSession(ExamSession session)
         {
-            
+            _uiManager.ShowExamShell(session);
         }
     }
 }

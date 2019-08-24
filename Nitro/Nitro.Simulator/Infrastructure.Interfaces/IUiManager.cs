@@ -5,5 +5,6 @@ namespace Nitro.Simulator.Infrastructure.Interfaces
     public interface IUiManager
     {
         ExamSession ShowExamConfigurationView(ExamFileInfo exam);
+        void ShowExamShell(ExamSession session);
     }
 }

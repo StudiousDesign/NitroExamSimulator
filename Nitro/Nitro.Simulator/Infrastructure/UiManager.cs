@@ -11,12 +11,14 @@ namespace Nitro.Simulator.Infrastructure
     public class UiManager : IUiManager
     {
         private readonly ExamConfigurationView _examConfigurationView;
+        private readonly ExamShellView _examShellView;
         private readonly IStorageManager _storageManager;
 
         [ImportingConstructor]
-        public UiManager(ExamConfigurationView examConfigurationView, IStorageManager storageManager)
+        public UiManager(ExamConfigurationView examConfigurationView, ExamShellView examShellView, IStorageManager storageManager)
         {
             _examConfigurationView = examConfigurationView;
+            _examShellView = examShellView;
             _storageManager = storageManager;
         }
 
@@ -30,6 +32,11 @@ namespace Nitro.Simulator.Infrastructure
                 return _examConfigurationView.ExamSession;
 
             return null;
+        }
+
+        public void ShowExamShell(ExamSession session)
+        {
+            _examShellView.ShowDialog(session);
         }
     }
 }
