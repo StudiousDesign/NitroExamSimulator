@@ -62,6 +62,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomControls\ExamQuestionControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomControls\ExamQuestionControl.Designer.cs">
+      <DependentUpon>ExamQuestionControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomControls\ExamSessionHeaderControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomControls\ExamSessionHeaderControl.Designer.cs">
+      <DependentUpon>ExamSessionHeaderControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Entities\Exam.cs" />
     <Compile Include="Entities\ExamFileCatalogueInfo.cs" />
     <Compile Include="Entities\ExamSession.cs" />
@@ -99,6 +111,12 @@
     <Compile Include="Views\ExamShellView.Designer.cs">
       <DependentUpon>ExamShellView.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="CustomControls\ExamQuestionControl.resx">
+      <DependentUpon>ExamQuestionControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomControls\ExamSessionHeaderControl.resx">
+      <DependentUpon>ExamSessionHeaderControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
