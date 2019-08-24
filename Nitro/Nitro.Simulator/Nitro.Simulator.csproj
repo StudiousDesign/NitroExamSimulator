@@ -74,6 +74,18 @@
     <Compile Include="CustomControls\ExamSessionHeaderControl.Designer.cs">
       <DependentUpon>ExamSessionHeaderControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="CustomControls\MultiChoiceExamAnswerControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomControls\MultiChoiceExamAnswerControl.Designer.cs">
+      <DependentUpon>MultiChoiceExamAnswerControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomControls\PlaceholderAnswerControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomControls\PlaceholderAnswerControl.Designer.cs">
+      <DependentUpon>PlaceholderAnswerControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Entities\Exam.cs" />
     <Compile Include="Entities\ExamFileCatalogueInfo.cs" />
     <Compile Include="Entities\ExamSession.cs" />
@@ -116,6 +128,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CustomControls\ExamSessionHeaderControl.resx">
       <DependentUpon>ExamSessionHeaderControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomControls\MultiChoiceExamAnswerControl.resx">
+      <DependentUpon>MultiChoiceExamAnswerControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomControls\PlaceholderAnswerControl.resx">
+      <DependentUpon>PlaceholderAnswerControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
