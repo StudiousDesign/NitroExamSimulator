@@ -67,9 +67,9 @@
     <Compile Include="Entities\ExamSession.cs" />
     <Compile Include="ExtensionMethods\ExtensionMethods.cs" />
     <Compile Include="Infrastructure\ExamManager.cs" />
-    <Compile Include="Infrastructure\ExamOutcome.cs" />
-    <Compile Include="Infrastructure\IExamManager.cs" />
-    <Compile Include="Infrastructure\IUiManager.cs" />
+    <Compile Include="Entities\ExamOutcome.cs" />
+    <Compile Include="Infrastructure.Interfaces\IExamManager.cs" />
+    <Compile Include="Infrastructure.Interfaces\IUiManager.cs" />
     <Compile Include="Infrastructure\UiManager.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -81,13 +81,14 @@
     <Compile Include="Views\ExamConfigurationView.Designer.cs">
       <DependentUpon>ExamConfigurationView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Entities\ExamMode.cs" />
     <Compile Include="Views\ExamSelectorView.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Views\ExamSelectorView.Designer.cs">
       <DependentUpon>ExamSelectorView.cs</DependentUpon>
     </Compile>
-    <Compile Include="Infrastructure\IStorageManager.cs" />
+    <Compile Include="Infrastructure.Interfaces\IStorageManager.cs" />
     <Compile Include="Infrastructure\StorageManager.cs" />
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">

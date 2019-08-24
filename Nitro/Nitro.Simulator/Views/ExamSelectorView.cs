@@ -12,6 +12,7 @@ using DevExpress.XtraGrid.Views.Grid;
 using Nitro.Simulator.Entities;
 using Nitro.Simulator.ExtensionMethods;
 using Nitro.Simulator.Infrastructure;
+using Nitro.Simulator.Infrastructure.Interfaces;
 
 namespace Nitro.Simulator.Views
 {

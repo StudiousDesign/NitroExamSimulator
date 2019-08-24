@@ -5,6 +5,7 @@ using System.IO.IsolatedStorage;
 using System.Linq;
 using Newtonsoft.Json;
 using Nitro.Simulator.Entities;
+using Nitro.Simulator.Infrastructure.Interfaces;
 
 namespace Nitro.Simulator.Infrastructure
 {

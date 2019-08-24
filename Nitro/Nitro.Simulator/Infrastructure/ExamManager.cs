@@ -2,6 +2,7 @@
 using System.ComponentModel.Composition;
 using System.Threading.Tasks;
 using Nitro.Simulator.Entities;
+using Nitro.Simulator.Infrastructure.Interfaces;
 
 namespace Nitro.Simulator.Infrastructure
 {
@@ -9,27 +10,27 @@ namespace Nitro.Simulator.Infrastructure
     public class ExamManager : IExamManager
     {
         private readonly IUiManager _uiManager;
-        private readonly IStorageManager _storageManager;
         public event EventHandler<ExamOutcome> OnExamCompleted;
-
-
+        
         [ImportingConstructor]
-        public ExamManager(IUiManager uiManager, IStorageManager storageManager)
+        public ExamManager(IUiManager uiManager)
         {
             _uiManager = uiManager;
-            _storageManager = storageManager;
         }
 
         public void BeginExam(ExamFileInfo examInfo)
         {
-            Exam exam = _storageManager.LoadExam(examInfo);
+            ExamSession session = _uiManager.ShowExamConfigurationView(examInfo);
 
-            if (exam == null)
-                return;
-
-            ExamSession session = _uiManager.ShowExamConfigurationView(exam);
+            if (session != null)
+                BeginExamSession(session);
 
             OnExamCompleted?.Invoke(null, session == null ? ExamOutcome.NotStarted : ExamOutcome.Completed);
+        }
+
+        private void BeginExamSession(ExamSession session)
+        {
+            
         }
     }
 }

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Nitro.Simulator.Entities;
 
-namespace Nitro.Simulator.Infrastructure
+namespace Nitro.Simulator.Infrastructure.Interfaces
 {
     public interface IStorageManager
     {

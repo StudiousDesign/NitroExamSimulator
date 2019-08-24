@@ -1,8 +1,7 @@
 ﻿using System;
-using System.Threading.Tasks;
 using Nitro.Simulator.Entities;
 
-namespace Nitro.Simulator.Infrastructure
+namespace Nitro.Simulator.Infrastructure.Interfaces
 {
     public interface IExamManager
     {

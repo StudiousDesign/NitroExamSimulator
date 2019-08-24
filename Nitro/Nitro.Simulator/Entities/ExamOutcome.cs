@@ -1,4 +1,4 @@
-﻿namespace Nitro.Simulator.Infrastructure
+﻿namespace Nitro.Simulator.Entities
 {
     public enum ExamOutcome
     {

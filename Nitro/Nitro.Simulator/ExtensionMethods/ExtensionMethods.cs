@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -22,6 +23,12 @@ namespace Nitro.Simulator.ExtensionMethods
                 examFileInfos.Add(new ExamFileInfo(exam.Id, exam.Name, exam.Author, fileName));
             }
             return examFileInfos;
+        }
+
+        public static string ToTitleCase(this string input)
+        {
+            TextInfo textInfo = new CultureInfo("en-GB", false).TextInfo;
+            return textInfo.ToTitleCase(input);
         }
     }
 }
