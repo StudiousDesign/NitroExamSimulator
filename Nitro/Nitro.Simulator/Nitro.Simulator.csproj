@@ -77,7 +77,7 @@
     <Compile Include="Views\BaseXtraFrom.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\CustomCloseReason.cs" />
+    <Compile Include="Entities\CustomCloseReason.cs" />
     <Compile Include="Views\ExamConfigurationView.cs">
       <SubType>Form</SubType>
     </Compile>
